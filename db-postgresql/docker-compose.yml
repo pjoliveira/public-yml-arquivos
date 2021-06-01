@@ -1,0 +1,22 @@
+version: "3.9"
+services:
+  db:
+    image: postgres:13
+    #build: .
+    container_name: dev-postgresql13
+    hostname: dev-postgresql13
+    ports:
+      - 5432:5432
+    volumes:
+      - ../db-postgresql/data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: dev
+      POSTGRES_DB: application-dev
+
+volumes:
+  data:
+    
+networks:
+  default:
+    external:
+      name: netdev

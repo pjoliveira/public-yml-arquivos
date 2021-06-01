@@ -1,0 +1,26 @@
+version: "3.9"
+services:
+  db:
+    image: mysql:8.0
+    #build: .
+    container_name: dev-mysql8
+    hostname: dev-mysql8
+    ports:
+      - 3306:3306
+    volumes:
+      - ../db-mysql/data:/var/lib/mysql      
+    environment:
+      MYSQL_ROOT_PASSWORD: dev
+      #MYSQL_DATABASE: application-dev
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: wordpress
+      MYSQL_DATABASE: wordpress
+
+volumes:
+  data:
+
+networks:
+  default:
+    external:
+      name: netdev
+

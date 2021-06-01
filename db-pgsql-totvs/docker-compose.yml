@@ -1,0 +1,22 @@
+version: "3.9"
+services:
+  db:
+    image: postgres:12.6
+    #build: .
+    container_name: db-pgsql
+    hostname: db-pgsql
+    ports:
+      - 5432:5432
+    volumes:
+      - ../db-pgsql-totvs/pgdata:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: dev
+#      POSTGRES_DB: application-dev
+
+volumes:
+  pgdata:
+    
+networks:
+  default:
+    external:
+      name: netdev
