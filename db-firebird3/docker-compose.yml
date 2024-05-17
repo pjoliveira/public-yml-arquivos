@@ -1,0 +1,27 @@
+version: '3.9'
+services:
+  firebird:
+    image: jacobalberty/firebird:3.0
+    container_name: dev-firebird3
+    hostname: dev-firebird3
+    ports:
+      - 3050:3050
+    environment:
+      - ISC_PASSWORD=masterkey
+      - FIREBIRD_DATABASE=datacred4.fdb
+      - FIREBIRD_USER=sysdba
+      - FIREBIRD_PASSWORD=masterkey
+      - FIREBIRD_PORT=3050
+    volumes:
+      - ../../yml-data/db-fb3/data:/firebird/data 
+      - ../../yml-data/db-fb3/data/databases.conf:/etc/firebird/3.0/databases.conf
+      - ../../yml-data/db-fb3/backup:/firebird/backup      
+    networks:
+      - rededev
+volumes:
+  fb3dados:
+    name: db-firebird3  
+networks:
+  rededev:
+    external: true
+    name: netdev      
