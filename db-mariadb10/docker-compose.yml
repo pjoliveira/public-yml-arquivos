@@ -7,7 +7,7 @@ services:
     ports:
       - 3306:3306
     volumes:
-      - ../yml-data/db-mariadb10/:/var/lib/mysql  
+      - ../../yml-data/db-mariadb10/:/var/lib/mysql  
     environment:
       - MARIADB_ROOT_PASSWORD=devroot
       - MARIADB_DATABASE=devlincred
