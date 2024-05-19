@@ -8,7 +8,7 @@ services:
     ports:
       - 3306:3306
     volumes:
-      - ../../db-mysql/data:/var/lib/mysql      
+      - /home/dev/reposit/dados/mysql8-db/data:/var/lib/mysql      
     environment:
       MYSQL_ROOT_PASSWORD: dev
       #MYSQL_DATABASE: application-dev

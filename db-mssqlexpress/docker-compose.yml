@@ -11,8 +11,8 @@ services:
       SA_PASSWORD: dev#741#DEV
       MSSQL_PID: Express
     volumes:
-      - ../../yml-data/db-mssqlexpress/dados/data:/var/opt/mssql/data
-      - ../../yml-data/db-mssqlexpress/dados/log:/var/opt/mssql/log
+      - /home/dev/reposit/dados/mssqlexpress-db/data:/var/opt/mssql/data
+      - /home/dev/reposit/dados/mssqlexpress-db/log:/var/opt/mssql/log
 volumes:
   dados:
 

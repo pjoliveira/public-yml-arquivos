@@ -1,0 +1,4 @@
+FROM mariadb:lts
+
+# RUN useradd -u 1000 dev 
+# USER dev

@@ -1,7 +1,7 @@
 version: '3.9'
 services:
   firebird:
-    image: jacobalberty/firebird:3.0
+    build: .
     container_name: dev-firebird3
     hostname: dev-firebird3
     ports:
@@ -13,9 +13,9 @@ services:
       - FIREBIRD_PASSWORD=masterkey
       - FIREBIRD_PORT=3050
     volumes:
-      - ../../yml-data/db-fb3/data:/firebird/data 
-      - ../../yml-data/db-fb3/data/databases.conf:/etc/firebird/3.0/databases.conf
-      - ../../yml-data/db-fb3/backup:/firebird/backup      
+      - /home/dev/reposit/dados/fb3-db/backup:/firebird/backup      
+      - /home/dev/reposit/dados/fb3-db/data:/firebird/data 
+      - /home/dev/reposit/dados/fb3-db/data/databases.conf:/etc/firebird/3.0/databases.conf      
     networks:
       - rededev
 volumes:

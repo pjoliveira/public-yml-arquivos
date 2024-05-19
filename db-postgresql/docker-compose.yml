@@ -8,7 +8,7 @@ services:
     ports:
       - 5432:5432
     volumes:
-      - ../../yml-data/postgresql14.1/data:/var/lib/postgresql/data
+      - /home/dev/reposit/dados/pgsql14.1/data:/var/lib/postgresql/data
     environment:
       POSTGRES_PASSWORD: dev
       POSTGRES_DB: application-dev

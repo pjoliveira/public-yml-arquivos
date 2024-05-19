@@ -1,0 +1,4 @@
+FROM jacobalberty/firebird:3.0
+
+#RUN touch /etc/firebird/3.0/databases.conf
+COPY databases.conf /etc/firebird/3.0/databases.conf      
