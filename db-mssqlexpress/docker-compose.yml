@@ -1,22 +1,23 @@
-version: "3.9"
+
+# version: "3.9"
 services:
-  db:
+  dev-mssql:
     image: mcr.microsoft.com/mssql/server:2017-latest
-    container_name: dev-mssqlexpress
-    hostname: dev-mssqlexpress
+    container_name: dev-mssql
+    # hostname: dev-mssqlexpress
     ports:
       - 1433:1433
     environment:
-      ACCEPT_EULA: Y
-      SA_PASSWORD: dev#741#DEV
-      MSSQL_PID: Express
+      - ACCEPT_EULA=Y
+      - MSSQL_SA_PASSWORD=dev#741#DEV
+      - MSSQL_PID=Express 
     volumes:
-      - /home/dev/reposit/dados/mssqlexpress-db/data:/var/opt/mssql/data
-      - /home/dev/reposit/dados/mssqlexpress-db/log:/var/opt/mssql/log
+      - /home/dev/reposit/dados/mssqlexpress/data:/var/opt/mssql/data
+      - /home/dev/reposit/dados/mssqlexpress/log:/var/opt/mssql/log
 volumes:
   dados:
-
+    name: db-mssqlexpress 
 networks:
-  default:
-    external:
-      name: netdev
+  rededev:
+    external: true
+    name: netdev
