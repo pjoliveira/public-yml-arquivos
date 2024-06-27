@@ -1,22 +1,23 @@
-version: "3.9"
+# version: "3.9"
 services:
   db:
-    image: postgres:14.1-alpine
+    image: postgres:16.3-alpine
     #build: .
-    container_name: dev-postgresql14.1
-    hostname: dev-postgresql14
+    container_name: dev-pgsql163
+    hostname: dev-pgsql163
     ports:
       - 5432:5432
     volumes:
-      - /home/dev/reposit/dados/pgsql14.1/data:/var/lib/postgresql/data
+      - /home/dev/reposit/dados/pgsql16.3/data:/var/lib/postgresql/data
     environment:
       POSTGRES_PASSWORD: dev
-      POSTGRES_DB: application-dev
-
+      POSTGRES_DB: representa_dev
+    networks:
+      - rededev
 volumes:
-  data:
-    
+  mdb10dados:
+    name: db     
 networks:
-  default:
-    external:
-      name: netdev
+  rededev:
+    external: true
+    name: netdev
