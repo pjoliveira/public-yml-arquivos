@@ -1,9 +1,9 @@
-version: '3.9'
+# version: '3.9'
 services:
-  firebird:
+  firebird3:
     build: .
-    container_name: dev-firebird3
-    hostname: dev-firebird3
+    container_name: dev-fb3
+    hostname: dev-fb3
     ports:
       - 3050:3050
     environment:
@@ -20,7 +20,7 @@ services:
       - rededev
 volumes:
   fb3dados:
-    name: db-firebird3  
+    name: dados  
 networks:
   rededev:
     external: true
