@@ -13,8 +13,8 @@ services:
       - 1433:1433
     environment:
       - ACCEPT_EULA=Y
-      - SA_PASSWORD=Root@mssql2021 #MSSQL_SA_PASSWORD=Root@mssql2021
-      - MSSQL_PID=Express 
+      - MSSQL_SA_PASSWORD=Root@mssql2021
+      #- MSSQL_PID= #Express 
     volumes:
       - /home/dev/reposit/dados/mssql2022/data:/var/opt/mssql/data
       - /home/dev/reposit/dados/mssql2022/log:/var/opt/mssql/log
