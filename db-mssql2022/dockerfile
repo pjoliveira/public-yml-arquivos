@@ -1,1 +1,14 @@
-FROM mcr.microsoft.com/mssql/server:2019-latest
+FROM mcr.microsoft.com/mssql/server:2022-latest
+
+RUN apt-get update 
+RUN apt-get install -y unixodbc firebird-odbc
+
+# Configurar a DSN (substitua os valores pelos seus)
+RUN echo "[Firebird3]" > /etc/odbcinst.ini && \
+    echo "Driver=/usr/lib/x86_64-linux-gnu/odbc/libfbclient.so" >> /etc/odbcinst.ini && \
+    echo "Database=localhost:/firebird/data/datacred4.fdb" >> /etc/odbcinst.ini && \
+    echo "UID=sysdba" >> /etc/odbcinst.ini && \
+    echo "PWD=masterkey" >> /etc/odbcinst.ini
+
+# Cria o servidor vinculado
+RUN echo 'EXEC sp_addlinkedserver @server = \'linked_firebird\', @srvproduct=\'Firebird/Interbase(r) driver\', @provider=\'MSDASQL\', @datasrc=\'DSN=Firebird3;UID=sysdba;PWD=masterkey\'' > init.sql
