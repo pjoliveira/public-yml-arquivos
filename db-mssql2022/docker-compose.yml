@@ -1,11 +1,14 @@
 
 # version: "3.9"
 services:
-  mssql:
-    #image: mcr.microsoft.com/mssql/server:2017-latest
-    image: mcr.microsoft.com/mssql/server:2022-CU16-ubuntu-22.04
-    container_name: dev-mssql
-    # hostname: dev-mssqlexpress
+  database:
+    user: root
+    # a imagem esta no docker file para compilação da imagem
+    build: .
+    #image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: dev-mssql2022
+    hostname: dev-mssql2022    
+    #privileged: true    
     ports:
       - 1433:1433
     environment:
